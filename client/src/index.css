@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-500: #6b7280;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+.wavy-underline {
+  background: padding-box;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 3' role='presentation'%3E%3Cpath d='M0 3L3 0L6 3' fill='none' stroke='%23ef4444' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 6px 3px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 2px;
+}
