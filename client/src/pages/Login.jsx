@@ -43,7 +43,21 @@ const Login = () => {
             }
         } catch (err) {
             console.error("Auth Error:", err);
-            setError(err.message || "Authentication failed. Please check your credentials.");
+
+            // Map Appwrite errors to user-friendly messages
+            let errorMessage = "Authentication failed. Please check your credentials.";
+
+            if (err.type === 'user_already_exists' || err.code === 409) {
+                errorMessage = "An account with this email already exists. Please login instead.";
+            } else if (err.type === 'user_password_mismatch' || err.code === 401) {
+                errorMessage = "Invalid email or password. Please try again.";
+            } else if (err.type === 'password_format_invalid') {
+                errorMessage = "Password must be at least 8 characters long.";
+            } else if (err.message) {
+                errorMessage = err.message;
+            }
+
+            setError(errorMessage);
         } finally {
             setLoading(false);
         }
