@@ -3,7 +3,7 @@ import { Client, Account, Databases, ID } from 'appwrite';
 const client = new Client();
 
 client
-    .setEndpoint('https://sgp.cloud.appwrite.io/v1') // Matches server .env
+    .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT || 'https://cloud.appwrite.io/v1') // Dynamic Endpoint
     .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID); // Project ID from env
 
 export const account = new Account(client);
