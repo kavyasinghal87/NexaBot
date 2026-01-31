@@ -68,7 +68,7 @@ const Footer = () => {
                             <a href="https://www.instagram.com/kavyasinghal87" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800/50 hover:bg-pink-600/20 hover:text-pink-400 rounded-lg transition-all border border-gray-800 hover:border-pink-500/30">
                                 <Instagram className="w-5 h-5" />
                             </a>
-                            <a href="https://www.linkedin.com/in/kavyasinghal87" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800/50 hover:bg-blue-600/20 hover:text-blue-400 rounded-lg transition-all border border-gray-800 hover:border-blue-500/30">
+                            <a href="https://www.linkedin.com/in/kavya-singhal-62b1a1322/" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800/50 hover:bg-blue-600/20 hover:text-blue-400 rounded-lg transition-all border border-gray-800 hover:border-blue-500/30">
                                 <Linkedin className="w-5 h-5" />
                             </a>
                             <a href="https://github.com/kavyasinghal87" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800/50 hover:bg-gray-600/20 hover:text-white rounded-lg transition-all border border-gray-800 hover:border-gray-500/30">
