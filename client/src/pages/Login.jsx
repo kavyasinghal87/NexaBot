@@ -57,6 +57,11 @@ const Login = () => {
                 errorMessage = err.message;
             }
 
+            // Append debug info to help diagnosis
+            if (err.type || err.code) {
+                errorMessage += ` (Debug: ${err.type || 'unknown'}, ${err.code || 'N/A'})`;
+            }
+
             setError(errorMessage);
         } finally {
             setLoading(false);
