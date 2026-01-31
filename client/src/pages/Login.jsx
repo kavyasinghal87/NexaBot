@@ -66,7 +66,11 @@ const Login = () => {
     const handleGoogleLogin = () => {
         try {
             // Initiate Appwrite OAuth Login
-            account.createOAuth2Session('google', 'http://localhost:5173/dashboard', 'http://localhost:5173/login');
+            account.createOAuth2Session(
+                'google',
+                `${window.location.origin}/dashboard`,
+                `${window.location.origin}/login`
+            );
         } catch (error) {
             console.error("Google Auth failed", error);
         }
