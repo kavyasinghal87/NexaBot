@@ -8,6 +8,7 @@ import History from './pages/History'
 import TestBench from './pages/TestBench'
 import Login from './pages/Login'
 import ResetPassword from './pages/ResetPassword'
+import Settings from './pages/Settings'
 import Footer from './components/Footer'
 import { GlobalProvider, useGlobal } from './context/GlobalContext'
 
@@ -84,6 +85,16 @@ const AppContent = () => {
                 </PrivateRoute>
               }
             />
+            <Route
+              path="/settings"
+              element={
+                <PrivateRoute>
+                  <div className={`transition-all duration-300 ease-in-out ${sidebarWidthClass}`}>
+                    <Settings />
+                  </div>
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </div>
         <ConditionalFooter />
@@ -103,7 +114,7 @@ function App() {
 const ConditionalFooter = () => {
   const location = useLocation();
   // Hide footer on Dashboard and History pages
-  const hideFooter = location.pathname.startsWith('/dashboard') || location.pathname.startsWith('/history') || location.pathname.startsWith('/testbench');
+  const hideFooter = location.pathname.startsWith('/dashboard') || location.pathname.startsWith('/history') || location.pathname.startsWith('/testbench') || location.pathname.startsWith('/settings');
   return !hideFooter ? <Footer /> : null;
 }
 

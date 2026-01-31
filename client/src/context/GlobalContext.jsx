@@ -28,6 +28,20 @@ export const GlobalProvider = ({ children }) => {
         }
     });
 
+    // --- Settings State ---
+    const [settings, setSettings] = useState(() => {
+        const savedSettings = localStorage.getItem('nexa_settings');
+        return savedSettings ? JSON.parse(savedSettings) : {
+            fontSize: 14,
+            theme: 'nexa-dark',
+            autoSave: true
+        };
+    });
+
+    useEffect(() => {
+        localStorage.setItem('nexa_settings', JSON.stringify(settings));
+    }, [settings]);
+
     // --- Initialization ---
     useEffect(() => {
         const initAuth = async () => {
@@ -98,6 +112,10 @@ export const GlobalProvider = ({ children }) => {
         }));
     };
 
+    const updateSettings = (updates) => {
+        setSettings(prev => ({ ...prev, ...updates }));
+    };
+
     return (
         <GlobalContext.Provider value={{
             user,
@@ -107,6 +125,8 @@ export const GlobalProvider = ({ children }) => {
             logout,
             updateDashboardState,
             updateTestBenchState,
+            settings,
+            updateSettings,
             resetWorkspace
         }}>
             {children}

@@ -22,9 +22,16 @@ const History = () => {
         setUserId(currentUserId);
         try {
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/history/${currentUserId}`);
-            setHistory(response.data);
+            if (Array.isArray(response.data)) {
+                setHistory(response.data);
+            } else {
+                console.error("Unexpected response format:", response.data);
+                setHistory([]);
+            }
         } catch (err) {
             console.error("Failed to load audits", err);
+            // Ensure history remains an array on error
+            setHistory([]);
         } finally {
             setLoading(false);
         }

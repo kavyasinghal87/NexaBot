@@ -48,10 +48,10 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
 
                 {!isCollapsed && <div className="h-px bg-gray-800 my-4 mx-2"></div>}
 
-                <button className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800/50 hover:text-white transition-colors text-left text-gray-400 cursor-pointer overflow-hidden whitespace-nowrap ${isCollapsed ? 'justify-center px-2' : ''}`} title={isCollapsed ? "Settings" : ""}>
+                <Link to="/settings" className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors overflow-hidden whitespace-nowrap ${isActive('/settings') ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20' : 'hover:bg-gray-800/50 hover:text-white'} ${isCollapsed ? 'justify-center px-2' : ''}`} title={isCollapsed ? "Settings" : ""}>
                     <Settings className="w-5 h-5 shrink-0" />
                     {!isCollapsed && <span>Settings</span>}
-                </button>
+                </Link>
             </nav>
 
             <div className={`p-4 border-t border-gray-800 overflow-hidden ${isCollapsed ? 'flex justify-center' : ''}`}>
